@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .cumple-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        h1 {
+            color: #d81b60;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        p {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .cake-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .confeti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="confeti" id="confeti"></div>
+    <div class="cumple-container">
+        <h1>¡Feliz Cumpleaños!</h1>
+        <img src="imagenes/imagen1.jpeg" alt="Nuestra foto" class="cake-img">
+        <p>¡Feliz Cumpleaños Fabi!
+        Hoy el día es especial, porque es el cumpleaños de alguien que marcó mi vida de una manera única. Aunque ya no estamos juntos, nunca podré olvidar todo lo que aprendimos el uno del otro, las risas que compartimos y el amor que unió nuestros caminos por un tiempo.
+        Gracias por siempre estar para mi asi ya no lo merezca y gracias por de una u otra manera ayudarme salir de esta oscuridad que estoy pasando.
+        Eres una persona maravillosa que dejó huella en mi corazón, y siempre tendrás un lugar especial en él.
+        Que este nuevo ciclo de vida te traiga paz, mucha felicidad, salud y que todos tus sueños se hagan realidad. Espero que pases un día lleno de momentos bonitos junto a quienes quieres.
+        Te deseo todo lo mejor del mundo, FELIZ 23 AÑOS SHANSHITA❤️
+    </p>
+    <!-- Botón clickeable -->
+<a href="https://www.youtube.com/watch?v=s3fcKFQukbY&list=RDs3fcKFQukbY&start_radio=1" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #e91e63; color: white; text-decoration: none; border-radius: 30px; font-size: 1.1rem; margin-top: 10px;">
+  Nuestra canciòn 🎥
+</a>
+    </div>
+
+    <script>
+        // Efecto de confeti simple
+        function crearConfeti() {
+            const confeti = document.getElementById('confeti');
+            const colores = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#00bcd4', '#4caf50'];
+            
+            for (let i = 0; i < 100; i++) {
+                const particula = document.createElement('div');
+                particula.style.width = `${Math.random() * 10 + 5}px`;
+                particula.style.height = `${Math.random() * 4 + 2}px`;
+                particula.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+                particula.style.position = 'absolute';
+                particula.style.top = `${Math.random() * 100}vh`;
+                particula.style.left = `${Math.random() * 100}vw`;
+                particula.style.transform = `rotate(${Math.random() * 360}deg)`;
+                particula.style.animation = `caer ${Math.random() * 5 + 3}s linear infinite`;
+                
+                confeti.appendChild(particula);
+            }
+        }
+
+        // Estilo de animación para el confeti
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes caer {
+                0% {
+                    transform: translateY(-10px) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Iniciar el efecto
+        crearConfeti();
+    </script>
+</body>
+</html>
